@@ -1,5 +1,25 @@
 {
   "name": "package",
   "version": "0.0.0",
-  "dependencies": {}
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-composer": "0.2.0",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-compass": "*",
+    "grunt-contrib-symlink": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-notify": "*",
+    "grunt-drush": "0.0.1",
+    "grunt-cssc": "*",
+    "grunt-lib-contrib": "~0.6.1",
+    "grunt-mkdir": "0.1.1",
+    "grunt-parallel-behat": "git+https://github.com/arithmetric/grunt-parallel-behat.git",
+    "matchdep": "*"
+  },
+  "devDependencies": {
+    "grunt-bless": "^0.1.1"
+  }
 }
