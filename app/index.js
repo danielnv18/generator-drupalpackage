@@ -29,11 +29,15 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
+
   scaffoldFolders: function(){
     this.mkdir("tasks");
     this.mkdir("test");
     this.mkdir("src");
     this.mkdir("src/modules");
+    this.mkdir("src/features");
+    this.mkdir("src/profiles");
+    this.mkdir("src/profiles/ ");
     this.mkdir("src/sites");
     this.mkdir("src/sites/default");
     this.mkdir("src/static");
@@ -75,9 +79,6 @@ module.exports = yeoman.generators.Base.extend({
       );
     }
 
-    tasks: function () {
-      
-    }
   },
 
   install: function () {
