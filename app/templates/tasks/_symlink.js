@@ -55,7 +55,7 @@ module.exports = function(grunt) {
       dest: '<%= config.buildPaths.html %>/sites/default/private_files'
     },
     theme: {
-      src: 'src/themes/i4c',
+      src: 'src/themes/<%= projectName %>',
       dest: '<%= config.buildPaths.html %>/sites/all/themes/<%= projectName %>'
     }
   });
