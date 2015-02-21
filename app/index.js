@@ -100,6 +100,10 @@ module.exports = yeoman.generators.Base.extend({
 
     theme: function () {
 
+    },
+
+    settings: function () {
+      
     }
 
   },
