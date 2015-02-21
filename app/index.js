@@ -22,18 +22,11 @@ module.exports = yeoman.generators.Base.extend({
         name: 'name',
         message: 'Your project name?',
         default : this.appname // Default to current folder name
-      },
-      {
-        type: 'confirm',
-        name: 'omega',
-        message: 'Would you to create an omega base sub-theme?',
-        default: true
       }
     ];
 
     this.prompt(prompts, function (props) {
       this.projectName = props.name;
-      this.omega = props.omega;
       done();
     }.bind(this));
   },
@@ -54,7 +47,7 @@ module.exports = yeoman.generators.Base.extend({
     this.mkdir("src/sass/abstractions");
     this.mkdir("src/sass/base");
     this.mkdir("src/sass/components");
-    this.mkdir("src/sass");
+    this.mkdir("src/sass/variables");
     this.mkdir("src/themes");
     this.mkdir("src/themes/" + this.projectName);
   },
@@ -72,6 +65,10 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copy(
         this.templatePath('_Gruntconfig.json'),
         this.destinationPath('Gruntconfig.json')
+      );
+      this.fs.copy(
+        this.templatePath('_gruntfile.json'),
+        this.destinationPath('gruntfile.json')
       );
     },
 
@@ -112,13 +109,57 @@ module.exports = yeoman.generators.Base.extend({
       );
     },
 
-    theme: function () {
-
+    tasks: function () {
+      this.fs.copy(
+        this.templatePath('tasks/_bless.js'),
+        this.destinationPath('tasks/bless.js'),
+      );
+      this.fs.copyTpl(
+        this.templatePath('tasks/_clean.js'),
+        this.destinationPath('tasks/clean.js'),
+      { projectName: this.projectName }
+      );
+      this.fs.copyTpl(
+        this.templatePath('tasks/_compass.js'),
+        this.destinationPath('tasks/compass.js'),
+      { projectName: this.projectName }
+      );
+      this.fs.copy(
+        this.templatePath('tasks/_composer.js'),
+        this.destinationPath('tasks/composer.js'),
+      );
+      this.fs.copyTpl(
+        this.templatePath('tasks/_concat.js'),
+        this.destinationPath('tasks/concat.js'),
+      { projectName: this.projectName }
+      );
+      this.fs.copy(
+        this.templatePath('tasks/_copy.js'),
+        this.destinationPath('tasks/copy.js'),
+      );
+      this.fs.copy(
+        this.templatePath('tasks/_drush.js'),
+        this.destinationPath('tasks/drush.js'),
+      );
+      this.fs.copy(
+        this.templatePath('tasks/_mkdir.js'),
+        this.destinationPath('tasks/mkdir.js'),
+      );
+      this.fs.copy(
+        this.templatePath('tasks/_notify.js'),
+        this.destinationPath('tasks/notify.js'),
+      );
+      this.fs.copyTpl(
+        this.templatePath('tasks/_symlink.js'),
+        this.destinationPath('tasks/symlink.js'),
+      { projectName: this.projectName }
+      );
+      this.fs.copy(
+        this.templatePath('tasks/_watch.js'),
+        this.destinationPath('tasks/watch.js'),
+      );
     },
 
-    settings: function () {
-
-    }
 
   },
 
