@@ -55,8 +55,8 @@ module.exports = function(grunt) {
       dest: '<%= config.buildPaths.html %>/sites/default/private_files'
     },
     theme: {
-      src: 'src/themes/<%= projectName %>',
-      dest: '<%= config.buildPaths.html %>/sites/all/themes/<%= projectName %>'
+      src: 'src/themes/<%= config.project.name %>',
+      dest: '<%= config.buildPaths.html %>/sites/all/themes/<%= config.project.name %>'
     }
   });
 

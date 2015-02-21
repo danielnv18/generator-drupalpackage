@@ -12,19 +12,19 @@ module.exports = function (grunt) {
         'src/scripts/_lib/**/*.js',
         'src/scripts/_lib/moment.js'
       ],
-      dest: 'build/html/sites/all/themes/<%= projectName %>/js/plugins.js'
+      dest: 'build/html/sites/all/themes/<%= config.project.name %>/js/plugins.js'
     },
     app: {
       src: [
         'src/scripts/_src/*.js'
       ],
-      dest: 'build/html/sites/all/themes/<%= projectName %>/js/app.js'
+      dest: 'build/html/sites/all/themes/<%= config.project.name %>/js/app.js'
     },
     main: {
       src: [
         'src/scripts/main.js'
       ],
-      dest: 'build/html/sites/all/themes/<%= projectName %>/js/main.js'
+      dest: 'build/html/sites/all/themes/<%= config.project.name %>/js/main.js'
     },
     base: {
       src: [
@@ -32,7 +32,7 @@ module.exports = function (grunt) {
         'src/scripts/_utils/**/*.js',
         'src/scripts/_config/base.config.*.js'
       ],
-      dest: 'build/html/sites/all/themes/<%= projectName %>/js/base.js'
+      dest: 'build/html/sites/all/themes/<%= config.project.name %>/js/base.js'
     },
     setup: {
       src: [
@@ -40,13 +40,13 @@ module.exports = function (grunt) {
         'src/scripts/_src/setup/components/*.js',
         'src/scripts/_src/setup/pages/*.js'
       ],
-      dest: 'build/html/sites/all/themes/<%= projectName %>/js/app.setup.concat.js'
+      dest: 'build/html/sites/all/themes/<%= config.project.name %>/js/app.setup.concat.js'
     },
     main_setup: {
       src: [
         'src/scripts/main.setup.js'
       ],
-      dest: 'build/html/sites/all/themes/<%= projectName %>/js/main.setup.js'
+      dest: 'build/html/sites/all/themes/<%= config.project.name %>/js/main.setup.js'
     }
   });
 };

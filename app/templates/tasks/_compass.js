@@ -18,14 +18,14 @@ module.exports = function (grunt) {
         drupal: {
             options: {
                 sassDir: 'src/sass',
-                cssDir: 'build/html/sites/all/themes/<%= projectName %>/css/',
+                cssDir: 'build/html/sites/all/themes/<%= config.project.name %>/css/',
                 environment: 'production'
             }
         },
         develop: {
             options:{
                 sassDir: 'src/sass',
-                cssDir: 'build/html/sites/all/themes/<%= projectName %>/css/',
+                cssDir: 'build/html/sites/all/themes/<%= config.project.name %>/css/',
                 environment: 'development'
             }
         }

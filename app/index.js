@@ -114,24 +114,21 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('tasks/_bless.js'),
         this.destinationPath('tasks/bless.js')
       );
-      this.fs.copyTpl(
+      this.fs.copy(
         this.templatePath('tasks/_clean.js'),
-        this.destinationPath('tasks/clean.js'),
-      { projectName: this.projectName }
+        this.destinationPath('tasks/clean.js')
       );
-      this.fs.copyTpl(
+      this.fs.copy(
         this.templatePath('tasks/_compass.js'),
-        this.destinationPath('tasks/compass.js'),
-      { projectName: this.projectName }
+        this.destinationPath('tasks/compass.js')
       );
       this.fs.copy(
         this.templatePath('tasks/_composer.js'),
         this.destinationPath('tasks/composer.js')
       );
-      this.fs.copyTpl(
+      this.fs.copy(
         this.templatePath('tasks/_concat.js'),
-        this.destinationPath('tasks/concat.js'),
-      { projectName: this.projectName }
+        this.destinationPath('tasks/concat.js')
       );
       this.fs.copy(
         this.templatePath('tasks/_copy.js'),
@@ -149,10 +146,9 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('tasks/_notify.js'),
         this.destinationPath('tasks/notify.js')
       );
-      this.fs.copyTpl(
+      this.fs.copy(
         this.templatePath('tasks/_symlink.js'),
-        this.destinationPath('tasks/symlink.js'),
-      { projectName: this.projectName }
+        this.destinationPath('tasks/symlink.js')
       );
       this.fs.copy(
         this.templatePath('tasks/_watch.js'),

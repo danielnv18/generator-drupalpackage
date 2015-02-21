@@ -18,7 +18,7 @@ module.exports = function(grunt) {
       '<%= config.buildPaths.html %>/sites/default'
     ],
       css: [
-          ['<%= config.buildPaths.html %>/sites/all/themes/<%= projectName %>/css/screen.css', '<%= config.buildPaths.html %>/sites/all/themes/<%= projectName %>/css/screen-blessed1.css']
+          ['<%= config.buildPaths.html %>/sites/all/themes/<%= config.project.name %>/css/screen.css', '<%= config.buildPaths.html %>/sites/all/themes/<%= config.project.name %>/css/screen-blessed1.css']
       ]
   });
 

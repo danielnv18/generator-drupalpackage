@@ -10,7 +10,7 @@ module.exports = function(grunt) {
   grunt.loadTasks(__dirname + '/../node_modules/grunt-contrib-watch/tasks');
   grunt.config('watch', {
     css: {
-      files: ['build/html/sites/all/themes/<%= projectName %>/css/*.css'],
+      files: ['build/html/sites/all/themes/<%= config.project.name %>/css/*.css'],
       tasks: ['notify:css_compile'],
       options: {
         livereload: true
