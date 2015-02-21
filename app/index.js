@@ -13,7 +13,7 @@ module.exports = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the ace' + chalk.red('Drupalpackage') + ' generator!'
+      'Welcome to the ace ' + chalk.red('Drupal Package') + ' generator!'
     ));
 
     var prompts = [{
@@ -99,7 +99,7 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     theme: function () {
-      
+
     }
 
   },
