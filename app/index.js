@@ -16,15 +16,24 @@ module.exports = yeoman.generators.Base.extend({
       'Welcome to the ace ' + chalk.red('Drupal Package') + ' generator!'
     ));
 
-    var prompts = [{
-      type: 'input',
-      name: 'name',
-      message: 'Your project name?',
-      default : this.appname // Default to current folder name
-    }];
+    var prompts = [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Your project name?',
+        default : this.appname // Default to current folder name
+      },
+      {
+        type: 'confirm',
+        name: 'omega',
+        message: 'Would you to create an omega base sub-theme?',
+        default: true
+      }
+    ];
 
     this.prompt(prompts, function (props) {
       this.projectName = props.name;
+      this.omega = props.omega;
       done();
     }.bind(this));
   },
@@ -41,6 +50,11 @@ module.exports = yeoman.generators.Base.extend({
     this.mkdir("src/sites");
     this.mkdir("src/sites/default");
     this.mkdir("src/static");
+    this.mkdir("src/sass");
+    this.mkdir("src/sass/abstractions");
+    this.mkdir("src/sass/base");
+    this.mkdir("src/sass/components");
+    this.mkdir("src/sass");
     this.mkdir("src/themes");
     this.mkdir("src/themes/" + this.projectName);
   },
@@ -103,7 +117,7 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     settings: function () {
-      
+
     }
 
   },
