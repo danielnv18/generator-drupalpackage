@@ -37,11 +37,12 @@ module.exports = yeoman.generators.Base.extend({
     this.mkdir("src/modules");
     this.mkdir("src/features");
     this.mkdir("src/profiles");
-    this.mkdir("src/profiles/ ");
+    this.mkdir("src/profiles/" + this.projectName);
     this.mkdir("src/sites");
     this.mkdir("src/sites/default");
     this.mkdir("src/static");
     this.mkdir("src/themes");
+    this.mkdir("src/themes/" + this.projectName);
   },
 
   writing: {
@@ -77,6 +78,28 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('_project.make'),
         this.destinationPath('src/project.make')
       );
+    },
+
+    profile: function () {
+      this.fs.copyTpl(
+        this.templatePath('profile/info'),
+        this.destinationPath('src/profiles/' + this.projectName + '/' + this.projectName + '.info'),
+      { projectName: this.projectName }
+      );
+      this.fs.copyTpl(
+        this.templatePath('profile/install'),
+        this.destinationPath('src/profiles/' + this.projectName + '/' + this.projectName + '.install'),
+      { projectName: this.projectName }
+      );
+      this.fs.copyTpl(
+        this.templatePath('profile/profile'),
+        this.destinationPath('src/profiles/' + this.projectName + '/' + this.projectName + '.profile'),
+      { projectName: this.projectName }
+      );
+    },
+
+    theme: function () {
+      
     }
 
   },
