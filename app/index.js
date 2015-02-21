@@ -17,17 +17,27 @@ module.exports = yeoman.generators.Base.extend({
     ));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
+      type: 'input',
+      name: 'name',
+      message: 'Your project name?',
+      default : this.appname // Default to current folder name
     }];
 
     this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
-
+      this.projectName = props.name;
       done();
     }.bind(this));
+  },
+
+  scaffoldFolders: function(){
+    this.mkdir("tasks");
+    this.mkdir("test");
+    this.mkdir("src");
+    this.mkdir("src/modules");
+    this.mkdir("src/sites");
+    this.mkdir("src/sites/default");
+    this.mkdir("src/static");
+    this.mkdir("src/themes");
   },
 
   writing: {
