@@ -112,7 +112,7 @@ module.exports = yeoman.generators.Base.extend({
     tasks: function () {
       this.fs.copy(
         this.templatePath('tasks/_bless.js'),
-        this.destinationPath('tasks/bless.js'),
+        this.destinationPath('tasks/bless.js')
       );
       this.fs.copyTpl(
         this.templatePath('tasks/_clean.js'),
@@ -126,7 +126,7 @@ module.exports = yeoman.generators.Base.extend({
       );
       this.fs.copy(
         this.templatePath('tasks/_composer.js'),
-        this.destinationPath('tasks/composer.js'),
+        this.destinationPath('tasks/composer.js')
       );
       this.fs.copyTpl(
         this.templatePath('tasks/_concat.js'),
@@ -135,19 +135,19 @@ module.exports = yeoman.generators.Base.extend({
       );
       this.fs.copy(
         this.templatePath('tasks/_copy.js'),
-        this.destinationPath('tasks/copy.js'),
+        this.destinationPath('tasks/copy.js')
       );
       this.fs.copy(
         this.templatePath('tasks/_drush.js'),
-        this.destinationPath('tasks/drush.js'),
+        this.destinationPath('tasks/drush.js')
       );
       this.fs.copy(
         this.templatePath('tasks/_mkdir.js'),
-        this.destinationPath('tasks/mkdir.js'),
+        this.destinationPath('tasks/mkdir.js')
       );
       this.fs.copy(
         this.templatePath('tasks/_notify.js'),
-        this.destinationPath('tasks/notify.js'),
+        this.destinationPath('tasks/notify.js')
       );
       this.fs.copyTpl(
         this.templatePath('tasks/_symlink.js'),
@@ -156,7 +156,7 @@ module.exports = yeoman.generators.Base.extend({
       );
       this.fs.copy(
         this.templatePath('tasks/_watch.js'),
-        this.destinationPath('tasks/watch.js'),
+        this.destinationPath('tasks/watch.js')
       );
     },
 
