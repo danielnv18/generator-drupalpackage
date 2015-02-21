@@ -50,6 +50,10 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('_bower.json'),
         this.destinationPath('bower.json')
       );
+      this.fs.copy(
+        this.templatePath('_Gruntconfig.json'),
+        this.destinationPath('Gruntconfig.json')
+      );
     },
 
     projectfiles: function () {
@@ -61,6 +65,18 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('jshintrc'),
         this.destinationPath('.jshintrc')
       );
+      this.fs.copy(
+        this.templatePath('_gitignore'),
+        this.destinationPath('.gitignore')
+      );
+      this.fs.copy(
+        this.templatePath('_project.make'),
+        this.destinationPath('src/project.make')
+      );
+    }
+
+    tasks: function () {
+      
     }
   },
 
