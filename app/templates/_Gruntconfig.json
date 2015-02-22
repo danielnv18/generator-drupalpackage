@@ -33,6 +33,6 @@
     "flags": "--tags ~@wip"
   },
   "project": {
-    "name" : "{%= %}"
+    "name" : "<%= projectName %>"
   }
 }

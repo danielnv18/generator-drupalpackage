@@ -62,9 +62,10 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('_bower.json'),
         this.destinationPath('bower.json')
       );
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('_Gruntconfig.json'),
-        this.destinationPath('Gruntconfig.json')
+        this.destinationPath('Gruntconfig.json'),
+        { projectName: this.projectName }
       );
       this.fs.copy(
         this.templatePath('_gruntfile.json'),
