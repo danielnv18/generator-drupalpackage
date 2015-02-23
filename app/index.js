@@ -41,7 +41,6 @@ module.exports = yeoman.generators.Base.extend({
     this.mkdir("src/sites");
     this.mkdir("src/sites/default");
     this.mkdir("src/static");
-    this.mkdir("src/themes");
   },
 
   writing: {
@@ -108,31 +107,20 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     theme: function() {
-      this.bulkDirectory('src/sass', 'sass');
+      this.bulkDirectory('sass', 'src/sass');
       this.bulkDirectory("theme", "src/themes/" + this.projectName);
 
-      this.mkdir("src/themes/" + this.projectName + '/preprocess/');
       this.fs.copyTpl(
-        this.templatePath('theme_tpl/preprocess/_page.preprocess.inc'),
+        this.templatePath('theme_tpl/_page.preprocess.inc'),
         this.destinationPath('src/themes/' + this.projectName + '/preprocess/page.preprocess.inc'),
       { projectName: this.projectName }
       );
-      this.fs.copy(
-        this.templatePath('theme_tpl/preprocess/README.md'),
-        this.destinationPath('src/themes/' + this.projectName + '/preprocess/README.md')
-      );
 
-      this.mkdir("src/themes/" + this.projectName + '/process/');
       this.fs.copyTpl(
-        this.templatePath('theme_tpl/process/_page.process.inc'),
+        this.templatePath('theme_tpl/_page.process.inc'),
         this.destinationPath('src/themes/' + this.projectName + '/process/page.process.inc'),
       { projectName: this.projectName }
       );
-      this.fs.copy(
-        this.templatePath('theme_tpl/process/README.md'),
-        this.destinationPath('src/themes/' + this.projectName + '/process/README.md')
-      );
-
 
       this.fs.copyTpl(
         this.templatePath('theme_tpl/info'),
