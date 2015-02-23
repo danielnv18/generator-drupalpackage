@@ -129,12 +129,12 @@ module.exports = yeoman.generators.Base.extend({
       );
       this.fs.copyTpl(
         this.templatePath('theme_tpl/_template.php'),
-        this.destinationPath('src/profiles/' + this.projectName + '/template.php'),
+        this.destinationPath('src/themes/' + this.projectName + '/template.php'),
       { projectName: this.projectName }
       );
       this.fs.copyTpl(
         this.templatePath('theme_tpl/_theme-settings.php'),
-        this.destinationPath('src/profiles/' + this.projectName + '/theme-settings.php'),
+        this.destinationPath('src/themes/' + this.projectName + '/theme-settings.php'),
       { projectName: this.projectName }
       );
 

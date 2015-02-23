@@ -34,6 +34,6 @@ dependencies[] = libraries
 dependencies[] = link
 dependencies[] = module_filter
 dependencies[] = pathauto
-dependencies[] = tokens
+dependencies[] = token
 dependencies[] = views
 dependencies[] = webform
