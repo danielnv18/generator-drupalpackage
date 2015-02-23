@@ -111,7 +111,7 @@ module.exports = yeoman.generators.Base.extend({
       this.bulkDirectory('src/sass', 'sass');
       this.bulkDirectory("theme", "src/themes/" + this.projectName);
 
-      this.mkdir("src/themes/" + this.projectName + 'preprocess/');
+      this.mkdir("src/themes/" + this.projectName + '/preprocess/');
       this.fs.copyTpl(
         this.templatePath('theme_tpl/preprocess/_page.preprocess.inc'),
         this.destinationPath('src/themes/' + this.projectName + '/preprocess/page.preprocess.inc'),
@@ -122,7 +122,7 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('src/themes/' + this.projectName + '/preprocess/README.md')
       );
 
-      this.mkdir("src/themes/" + this.projectName + 'process/');
+      this.mkdir("src/themes/" + this.projectName + '/process/');
       this.fs.copyTpl(
         this.templatePath('theme_tpl/process/_page.process.inc'),
         this.destinationPath('src/themes/' + this.projectName + '/process/page.process.inc'),
