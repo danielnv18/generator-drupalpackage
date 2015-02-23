@@ -38,17 +38,10 @@ module.exports = yeoman.generators.Base.extend({
     this.mkdir("src/modules");
     this.mkdir("src/features");
     this.mkdir("src/profiles");
-    this.mkdir("src/profiles/" + this.projectName);
     this.mkdir("src/sites");
     this.mkdir("src/sites/default");
     this.mkdir("src/static");
-    this.mkdir("src/sass");
-    this.mkdir("src/sass/abstractions");
-    this.mkdir("src/sass/base");
-    this.mkdir("src/sass/components");
-    this.mkdir("src/sass/variables");
     this.mkdir("src/themes");
-    this.mkdir("src/themes/" + this.projectName);
   },
 
   writing: {
@@ -67,8 +60,8 @@ module.exports = yeoman.generators.Base.extend({
         { projectName: this.projectName }
       );
       this.fs.copy(
-        this.templatePath('_gruntfile.json'),
-        this.destinationPath('gruntfile.json')
+        this.templatePath('_gruntfile.js'),
+        this.destinationPath('gruntfile.js')
       );
     },
 
@@ -92,6 +85,7 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     profile: function () {
+      this.mkdir("src/profiles/" + this.projectName);
       this.fs.copyTpl(
         this.templatePath('profile/info'),
         this.destinationPath('src/profiles/' + this.projectName + '/' + this.projectName + '.info'),
@@ -113,6 +107,50 @@ module.exports = yeoman.generators.Base.extend({
       this.bulkDirectory('tasks', 'tasks');
     },
 
+    theme: function() {
+      this.bulkDirectory('sass', 'sass');
+      this.bulkDirectory("theme", "src/themes/" + this.projectName);
+
+      this.mkdir("src/themes/" + this.projectName + 'preprocess/');
+      this.fs.copyTpl(
+        this.templatePath('theme_tpl/preprocess/_page.preprocess.inc'),
+        this.destinationPath('src/themes/' + this.projectName + '/preprocess/page.preprocess.inc'),
+      { projectName: this.projectName }
+      );
+      this.fs.copy(
+        this.templatePath('theme_tpl/preprocess/README.md'),
+        this.destinationPath('src/themes/' + this.projectName + '/preprocess/README.md')
+      );
+
+      this.mkdir("src/themes/" + this.projectName + 'process/');
+      this.fs.copyTpl(
+        this.templatePath('theme_tpl/process/_page.process.inc'),
+        this.destinationPath('src/themes/' + this.projectName + '/process/page.process.inc'),
+      { projectName: this.projectName }
+      );
+      this.fs.copy(
+        this.templatePath('theme_tpl/process/README.md'),
+        this.destinationPath('src/themes/' + this.projectName + '/process/README.md')
+      );
+
+
+      this.fs.copyTpl(
+        this.templatePath('theme_tpl/info'),
+        this.destinationPath('src/themes/' + this.projectName + '/' + this.projectName + '.info'),
+      { projectName: this.projectName }
+      );
+      this.fs.copyTpl(
+        this.templatePath('theme_tpl/_template.php'),
+        this.destinationPath('src/profiles/' + this.projectName + '/template.php'),
+      { projectName: this.projectName }
+      );
+      this.fs.copyTpl(
+        this.templatePath('theme_tpl/_theme-settings.php'),
+        this.destinationPath('src/profiles/' + this.projectName + '/theme-settings.php'),
+      { projectName: this.projectName }
+      );
+
+    }
 
   },
 
