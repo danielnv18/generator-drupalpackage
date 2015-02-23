@@ -33,7 +33,6 @@ module.exports = yeoman.generators.Base.extend({
 
 
   scaffoldFolders: function(){
-    this.mkdir("tasks");
     this.mkdir("test");
     this.mkdir("src");
     this.mkdir("src/modules");
@@ -111,50 +110,7 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     tasks: function () {
-      this.fs.copy(
-        this.templatePath('tasks/_bless.js'),
-        this.destinationPath('tasks/bless.js')
-      );
-      this.fs.copy(
-        this.templatePath('tasks/_clean.js'),
-        this.destinationPath('tasks/clean.js')
-      );
-      this.fs.copy(
-        this.templatePath('tasks/_compass.js'),
-        this.destinationPath('tasks/compass.js')
-      );
-      this.fs.copy(
-        this.templatePath('tasks/_composer.js'),
-        this.destinationPath('tasks/composer.js')
-      );
-      this.fs.copy(
-        this.templatePath('tasks/_concat.js'),
-        this.destinationPath('tasks/concat.js')
-      );
-      this.fs.copy(
-        this.templatePath('tasks/_copy.js'),
-        this.destinationPath('tasks/copy.js')
-      );
-      this.fs.copy(
-        this.templatePath('tasks/_drush.js'),
-        this.destinationPath('tasks/drush.js')
-      );
-      this.fs.copy(
-        this.templatePath('tasks/_mkdir.js'),
-        this.destinationPath('tasks/mkdir.js')
-      );
-      this.fs.copy(
-        this.templatePath('tasks/_notify.js'),
-        this.destinationPath('tasks/notify.js')
-      );
-      this.fs.copy(
-        this.templatePath('tasks/_symlink.js'),
-        this.destinationPath('tasks/symlink.js')
-      );
-      this.fs.copy(
-        this.templatePath('tasks/_watch.js'),
-        this.destinationPath('tasks/watch.js')
-      );
+      this.bulkDirectory('tasks', 'tasks');
     },
 
 

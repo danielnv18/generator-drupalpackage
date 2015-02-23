@@ -1,0 +1,33 @@
+name = <%= projectName %>
+description = Please provide a description for your theme.
+base theme = ohm
+screenshot = screenshot.png
+engine = phptemplate
+core = 7.x
+
+; ========================================
+; Stylesheets
+; ========================================
+stylesheets[all][] = css/demo.normalize.css
+stylesheets[all][] = css/demo.hacks.css
+stylesheets[all][] = css/demo.styles.css
+stylesheets[all][] = css/demo.no-query.css
+
+; ========================================
+; Scripts
+; ========================================
+scripts[] = js/demo.behaviors.js
+
+; ========================================
+; Regions
+; ========================================
+regions[branding] = Branding
+regions[navigation] = Navigation bar
+regions[header] = Header
+regions[hero] = Hero
+regions[highlighted] = Highlighted
+regions[help] = Help
+regions[content] = Content
+regions[sidebar_first] = First sidebar
+regions[sidebar_second] = Second sidebar
+regions[footer] = Footer
