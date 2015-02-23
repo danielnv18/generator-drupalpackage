@@ -108,7 +108,7 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     theme: function() {
-      this.bulkDirectory('sass', 'sass');
+      this.bulkDirectory('src/sass', 'sass');
       this.bulkDirectory("theme", "src/themes/" + this.projectName);
 
       this.mkdir("src/themes/" + this.projectName + 'preprocess/');
