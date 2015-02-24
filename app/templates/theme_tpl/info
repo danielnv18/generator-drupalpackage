@@ -8,10 +8,10 @@ core = 7.x
 ; ========================================
 ; Stylesheets
 ; ========================================
-stylesheets[all][] = css/normalize.css
-stylesheets[all][] = css/hacks.css
-stylesheets[all][] = css/styles.css
-stylesheets[all][] = css/no-query.css
+stylesheets[all][] = css/<%= projectName %>.normalize.css
+stylesheets[all][] = css/<%= projectName %>.hacks.css
+stylesheets[all][] = css/<%= projectName %>.styles.css
+stylesheets[all][] = css/<%= projectName %>.no-query.css
 
 ; ========================================
 ; Scripts
