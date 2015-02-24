@@ -1,4 +1,5 @@
-# generator-drupalpackage [![Build Status](https://secure.travis-ci.org/danielnv18/generator-drupalpackage.png?branch=master)](https://travis-ci.org/danielnv18/generator-drupalpackage)
+# generator-drupalpackage
+[![Build Status](https://secure.travis-ci.org/danielnv18/generator-drupalpackage.png?branch=master)](https://travis-ci.org/danielnv18/generator-drupalpackage) [![Coverage Status](https://coveralls.io/repos/danielnv18/generator-drupalpackage/badge.svg)](https://coveralls.io/r/danielnv18/generator-drupalpackage)
 
 > [Yeoman](http://yeoman.io) generator
 
