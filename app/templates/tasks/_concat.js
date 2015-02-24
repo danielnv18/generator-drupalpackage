@@ -5,15 +5,6 @@ module.exports = function (grunt) {
    */
   grunt.loadTasks(__dirname + '/../node_modules/grunt-contrib-concat/tasks');
   grunt.config('concat', {
-    plugins: {
-      src: [
-        'src/scripts/_lib/**/jquery.browser.patch.js',
-        'src/scripts/_lib/**/globalize.min.js',
-        'src/scripts/_lib/**/*.js',
-        'src/scripts/_lib/moment.js'
-      ],
-      dest: 'build/html/sites/all/themes/<%= config.project.name %>/js/plugins.js'
-    },
     app: {
       src: [
         'src/scripts/_src/*.js'

@@ -43,10 +43,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', tasksDefault);
   grunt.registerTask('update', ['drush:updb', 'drush:fra', 'clean:css', 'compass', 'bless']);
-  grunt.registerTask('dev', ['clean:css', 'compass:develop', 'concat', 'watch']);
-  grunt.registerTask('develop', ['clean:css', 'compass:develop', 'concat', 'watch']);
-  grunt.registerTask('dev_ie', ['clean:css', 'compass', 'bless', 'concat', 'watch']);
-  grunt.registerTask('app_change', ['concat:base', 'concat:app', 'concat:main', 'concat:setup', 'concat:main_setup']);
-  grunt.registerTask('concat_change');
+  grunt.registerTask('dev', ['clean:css', 'compass:develop', 'watch']);
+  grunt.registerTask('develop', ['clean:css', 'compass:develop', 'watch']);
+  grunt.registerTask('dev_ie', ['clean:css', 'compass', 'bless', 'watch']);
   grunt.registerTask('sass_change', ['compass']);
 };

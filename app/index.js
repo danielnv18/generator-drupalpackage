@@ -41,6 +41,7 @@ module.exports = yeoman.generators.Base.extend({
     this.mkdir("src/sites");
     this.mkdir("src/sites/default");
     this.mkdir("src/static");
+    this.mkdir("src/scripts");
   },
 
   writing: {
