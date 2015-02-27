@@ -21,7 +21,7 @@ module.exports = yeoman.generators.Base.extend({
         type: 'input',
         name: 'name',
         message: 'Your project name?',
-        default : this.appname // Default to current folder name
+        default : this._.camelize(this._.slugify(this._.humanize(this.appname))) // Default to current folder name
       }
     ];
 
