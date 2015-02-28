@@ -106,14 +106,14 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     tasks: function () {
-      this.bulkDirectory('tasks', 'tasks');
+      this.directory('tasks', 'tasks');
     },
 
     theme: function() {
-      this.bulkDirectory('sass/abstractions', 'src/sass/abstractions');
-      this.bulkDirectory('sass/base', 'src/sass/base');
-      this.bulkDirectory('sass/components', 'src/sass/components');
-      this.bulkDirectory('sass/variables', 'src/sass/variables');
+      this.directory('sass/abstractions', 'src/sass/abstractions');
+      this.directory('sass/base', 'src/sass/base');
+      this.directory('sass/components', 'src/sass/components');
+      this.directory('sass/variables', 'src/sass/variables');
 
       this.fs.copy(
         this.templatePath('sass/hacks.scss'),
@@ -133,7 +133,7 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('src/sass/' + this.projectMachineName + '.styles.scss')
       );
 
-      this.bulkDirectory("theme", "src/themes/" + this.projectMachineName);
+      this.directory("theme", "src/themes/" + this.projectMachineName);
 
       this.fs.copyTpl(
         this.templatePath('theme_tpl/_page.preprocess.inc'),
