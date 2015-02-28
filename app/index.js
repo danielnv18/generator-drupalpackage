@@ -85,6 +85,14 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('_project.make'),
         this.destinationPath('src/project.make')
       );
+      this.fs.copy(
+        this.templatePath('_default.settings.php'),
+        this.destinationPath('src/sites/default/default.settings.php')
+      );
+      this.fs.copy(
+        this.templatePath('_default.settings.php'),
+        this.destinationPath('src/sites/default/settings.php')
+      );
     },
 
     profile: function () {
