@@ -20,7 +20,12 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "yeoman",
+    "generator",
+    "drupal",
+    "tasks",
+    "package"
   ],
   "dependencies": {
     "yeoman-generator": "^0.18.0",
