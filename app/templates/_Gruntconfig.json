@@ -31,8 +31,5 @@
   },
   "behat": {
     "flags": "--tags ~@wip"
-  },
-  "project": {
-    "name" : "<%= projectName %>"
   }
 }
