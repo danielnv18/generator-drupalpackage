@@ -114,10 +114,6 @@ module.exports = yeoman.generators.Base.extend({
       );
     },
 
-    tasks: function () {
-      this.directory('tasks', 'tasks');
-    },
-
     theme: function() {
       this.directory('sass/abstractions', 'src/sass/abstractions');
       this.directory('sass/base', 'src/sass/base');
