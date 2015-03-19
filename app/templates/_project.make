@@ -12,6 +12,7 @@ projects[drupal][version] = "7.33"
 ; sites/all/modules.
 defaults[projects][subdir] = "contrib"
 
+<% if(isFull) { %>
 projects[admin_menu][version] = "3.0-rc4"
 projects[admin_views][version] = "1.2"
 projects[backup_migrate][version] = "2.8"
@@ -73,3 +74,4 @@ libraries[ckeditor][download][type] = "get"
 libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.4.4/ckeditor_4.4.4_standard.zip"
 libraries[ckeditor][destination] = "modules/contrib/ckeditor"
 libraries[ckeditor][type] = "library"
+<% } %>
