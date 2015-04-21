@@ -73,6 +73,14 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('_gruntfile.js'),
         this.destinationPath('gruntfile.js')
       );
+      this.fs.copy(
+        this.templatePath('_composer.json'),
+        this.destinationPath('composer.json')
+      );
+      this.fs.copy(
+        this.templatePath('_phpmd.xml'),
+        this.destinationPath('phpmd.xml')
+      );
     },
 
     projectfiles: function () {
