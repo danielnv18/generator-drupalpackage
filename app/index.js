@@ -227,7 +227,6 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   install: function () {
-    this.spawnCommand('composer', ['install']);
     this.installDependencies({
       bower: false,
       npm: true,
