@@ -66,6 +66,11 @@ module.exports = yeoman.generators.Base.extend({
       this.templatePath('.gitkeep'),
       this.destinationPath('src/static/.gitkeep')
     );
+
+    if (!this.full) {
+      this.mkdir("src/themes");
+    }
+
     this.mkdir("src/scripts");
     this.fs.copy(
       this.templatePath('.gitkeep'),

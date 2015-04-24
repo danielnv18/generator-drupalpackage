@@ -422,7 +422,8 @@ function <%= projectName %>_install() {
   menu_rebuild();
 
   // Enable the admin theme.
-  db_update('system')
+  db_merge('system')
+    ->key(array('name' => 'adminimal_theme'))
     ->fields(array('status' => 1))
     ->condition('type', 'theme')
     ->condition('name', 'adminimal_theme')
