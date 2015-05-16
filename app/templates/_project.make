@@ -2,7 +2,7 @@ core = 7.x
 api = 2
 
 ; Drupal Core
-projects[drupal][version] = "7.33"
+projects[drupal][version] = "7.36"
 
 ; =====================================
 ; Contrib Modules
@@ -13,7 +13,7 @@ projects[drupal][version] = "7.33"
 defaults[projects][subdir] = "contrib"
 
 <% if(isFull) { %>
-projects[admin_menu][version] = "3.0-rc4"
+projects[admin_menu][version] = "3.0-rc5"
 projects[admin_views][version] = "1.2"
 projects[backup_migrate][version] = "2.8"
 projects[better_exposed_filters][version] = "3.0-beta4"
@@ -32,12 +32,10 @@ projects[imagefield_crop][version] = "1.1"
 projects[jquery_update][version] = "2.4"
 projects[libraries][version] = "2.2"
 projects[link][version] = "1.3"
-projects[manualcrop][download][type] = "git"
-projects[manualcrop][download][revision] = "332ffcc"
+projects[manualcrop][version] = "1.5"
 projects[media][version] = "1.4"
 projects[metatag][version] = "1.0-beta7"
-projects[migrate_d2d][download][type] = "git"
-projects[migrate_d2d][download][revision] = "bc35f71"
+projects[migrate_d2d][version] = "7.x-2.1"
 projects[module_filter][version] = "2.0-alpha2"
 projects[node_export][version] = "3.0"
 projects[pathauto][version] = "1.2"
@@ -46,10 +44,8 @@ projects[migrate_d2d][version] = "2.1-beta1"
 projects[rules][version] = "2.7"
 projects[strongarm][version] = "2.0"
 projects[token][version] = "1.5"
-projects[uuid][download][type] = "git"
-projects[uuid][download][revision] = "45d745c"
-projects[uuid_features][download][type] = "git"
-projects[uuid_features][download][revision] = "3b0dca6"
+projects[uuid][version] = "1.0-alpha6"
+projects[uuid_features] = "1.0-alpha4"
 projects[variable][version] = 2.4
 projects[viewreference][version] = "3.4"
 projects[views][version] = "3.8"

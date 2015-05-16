@@ -45,13 +45,42 @@ module.exports = yeoman.generators.Base.extend({
     this.mkdir("test");
     this.mkdir("src");
     this.mkdir("src/modules");
+    this.fs.copy(
+      this.templatePath('.gitkeep'),
+      this.destinationPath('src/modules/.gitkeep')
+    );
     this.mkdir("src/features");
+    this.fs.copy(
+      this.templatePath('.gitkeep'),
+      this.destinationPath('src/features/.gitkeep')
+    );
     this.mkdir("src/profiles");
+    this.fs.copy(
+      this.templatePath('.gitkeep'),
+      this.destinationPath('src/profiles/.gitkeep')
+    );
     this.mkdir("src/sites");
     this.mkdir("src/sites/default");
     this.mkdir("src/static");
+    this.fs.copy(
+      this.templatePath('.gitkeep'),
+      this.destinationPath('src/static/.gitkeep')
+    );
+
+    if (!this.full) {
+      this.mkdir("src/themes");
+    }
+
     this.mkdir("src/scripts");
+    this.fs.copy(
+      this.templatePath('.gitkeep'),
+      this.destinationPath('src/scripts/.gitkeep')
+    );
     this.mkdir("src/patches");
+    this.fs.copy(
+      this.templatePath('.gitkeep'),
+      this.destinationPath('src/patches/.gitkeep')
+    );
   },
 
   writing: {
@@ -72,6 +101,14 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copy(
         this.templatePath('_gruntfile.js'),
         this.destinationPath('gruntfile.js')
+      );
+      this.fs.copy(
+        this.templatePath('_composer.json'),
+        this.destinationPath('composer.json')
+      );
+      this.fs.copy(
+        this.templatePath('_phpmd.xml'),
+        this.destinationPath('phpmd.xml')
       );
     },
 
