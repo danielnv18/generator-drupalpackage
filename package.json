@@ -1,12 +1,12 @@
 {
   "name": "generator-drupalpackage",
-  "version": "0.0.0",
+  "version": "0.4.1",
   "description": "Yeoman generator",
   "homepage": "",
   "author": {
     "name": "Daniel Noyola",
-    "email": "danielnv18@gmail.com",
-    "url": "daniel.noyoyola.me"
+    "email": "daniel@noyola.me",
+    "url": "https://github.com/danielnv18"
   },
   "files": [
     "generators"
@@ -16,9 +16,8 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "chalk": "^1.0.0",
-    "lodash": "^3.10.1",
     "yeoman-generator": "^0.21.1",
+    "chalk": "^1.0.0",
     "yosay": "^1.0.2"
   },
   "devDependencies": {
