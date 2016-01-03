@@ -2,10 +2,15 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var fs = require('fs');
+var path = require('path');
+var util = require('util');
+var wiredep = require('wiredep');
+var _ = require('underscore.string');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
-    this.pkg = require('../package.json');
+    this.pkg = require('../../package.json');
   },
 
   prompting: function () {
@@ -21,7 +26,7 @@ module.exports = yeoman.generators.Base.extend({
         type: 'input',
         name: 'name',
         message: 'What\'s the project name?',
-        default : this._.camelize(this._.slugify(this._.humanize(this.appname))) // Default to current folder name
+        default : _.camelize(_.slugify(_.humanize(this.appname))) // Default to current folder name
       },
       {
         type: 'confirm',
@@ -42,194 +47,12 @@ module.exports = yeoman.generators.Base.extend({
 
 
   scaffoldFolders: function(){
-    this.mkdir("test");
-    this.mkdir("src");
-    this.mkdir("src/modules");
-    this.fs.copy(
-      this.templatePath('.gitkeep'),
-      this.destinationPath('src/modules/.gitkeep')
-    );
-    this.mkdir("src/features");
-    this.fs.copy(
-      this.templatePath('.gitkeep'),
-      this.destinationPath('src/features/.gitkeep')
-    );
-    this.mkdir("src/profiles");
-    this.fs.copy(
-      this.templatePath('.gitkeep'),
-      this.destinationPath('src/profiles/.gitkeep')
-    );
-    this.mkdir("src/sites");
-    this.mkdir("src/sites/default");
-    this.mkdir("src/static");
-    this.fs.copy(
-      this.templatePath('.gitkeep'),
-      this.destinationPath('src/static/.gitkeep')
-    );
-
-    if (!this.full) {
-      this.mkdir("src/themes");
-    }
-
-    this.mkdir("src/scripts");
-    this.fs.copy(
-      this.templatePath('.gitkeep'),
-      this.destinationPath('src/scripts/.gitkeep')
-    );
-    this.mkdir("src/patches");
-    this.fs.copy(
-      this.templatePath('.gitkeep'),
-      this.destinationPath('src/patches/.gitkeep')
-    );
+      this.directory('gdt', '');
   },
 
-  writing: {
-    app: function () {
-      this.fs.copy(
-        this.templatePath('_package.json'),
-        this.destinationPath('package.json')
-      );
-      this.fs.copy(
-        this.templatePath('_bower.json'),
-        this.destinationPath('bower.json')
-      );
-      this.fs.copyTpl(
-        this.templatePath('_Gruntconfig.json'),
-        this.destinationPath('Gruntconfig.json'),
-        { projectName: this.projectMachineName }
-      );
-      this.fs.copy(
-        this.templatePath('_gruntfile.js'),
-        this.destinationPath('gruntfile.js')
-      );
-      this.fs.copy(
-        this.templatePath('_composer.json'),
-        this.destinationPath('composer.json')
-      );
-      this.fs.copy(
-        this.templatePath('_phpmd.xml'),
-        this.destinationPath('phpmd.xml')
-      );
-    },
-
-    projectfiles: function () {
-      this.fs.copy(
-        this.templatePath('editorconfig'),
-        this.destinationPath('.editorconfig')
-      );
-      this.fs.copy(
-        this.templatePath('jshintrc'),
-        this.destinationPath('.jshintrc')
-      );
-      this.fs.copy(
-        this.templatePath('_gitignore'),
-        this.destinationPath('.gitignore')
-      );
-      this.fs.copyTpl(
-        this.templatePath('_project.make'),
-        this.destinationPath('src/project.make'),
-        { isFull: this.full }
-      );
-      this.fs.copy(
-        this.templatePath('_default.settings.php'),
-        this.destinationPath('src/sites/default/default.settings.php')
-      );
-      this.fs.copy(
-        this.templatePath('_default.settings.php'),
-        this.destinationPath('src/sites/default/settings.php')
-      );
-    },
-
-
-    profile: function () {
-      if (this.full) {
-        this.mkdir("src/profiles/" + this.projectMachineName);
-        this.fs.copyTpl(
-          this.templatePath('profile/info'),
-          this.destinationPath('src/profiles/' + this.projectMachineName + '/' + this.projectMachineName + '.info'),
-          { projectName: this.projectMachineName }
-        );
-        this.fs.copyTpl(
-          this.templatePath('profile/install'),
-          this.destinationPath('src/profiles/' + this.projectMachineName + '/' + this.projectMachineName + '.install'),
-          { projectName: this.projectMachineName }
-        );
-        this.fs.copyTpl(
-          this.templatePath('profile/profile'),
-          this.destinationPath('src/profiles/' + this.projectMachineName + '/' + this.projectMachineName + '.profile'),
-          { projectName: this.projectMachineName }
-        );
-      }
-
-    },
-
-    theme: function() {
-      if (this.full) {
-        this.directory('sass/abstractions', 'src/sass/abstractions');
-        this.directory('sass/base', 'src/sass/base');
-        this.directory('sass/components', 'src/sass/components');
-        this.directory('sass/variables', 'src/sass/variables');
-
-        this.fs.copy(
-          this.templatePath('sass/hacks.scss'),
-          this.destinationPath('src/sass/' + this.projectMachineName + '.hacks.scss')
-        );
-        this.fs.copyTpl(
-          this.templatePath('sass/no-query.scss'),
-          this.destinationPath('src/sass/' + this.projectMachineName + '.no-query.scss'),
-          { projectName: this.projectMachineName }
-        );
-        this.fs.copy(
-          this.templatePath('sass/normalize.scss'),
-          this.destinationPath('src/sass/' + this.projectMachineName + '.normalize.scss')
-        );
-        this.fs.copy(
-          this.templatePath('sass/styles.scss'),
-          this.destinationPath('src/sass/' + this.projectMachineName + '.styles.scss')
-        );
-
-        this.directory("theme", "src/themes/" + this.projectMachineName);
-
-        this.fs.copyTpl(
-          this.templatePath('theme_tpl/_page.preprocess.inc'),
-          this.destinationPath('src/themes/' + this.projectMachineName + '/preprocess/page.preprocess.inc'),
-          { projectName: this.projectMachineName }
-        );
-
-        this.fs.copyTpl(
-          this.templatePath('theme_tpl/_page.process.inc'),
-          this.destinationPath('src/themes/' + this.projectMachineName + '/process/page.process.inc'),
-          { projectName: this.projectMachineName }
-        );
-
-        this.fs.copyTpl(
-          this.templatePath('theme_tpl/info'),
-          this.destinationPath('src/themes/' + this.projectMachineName + '/' + this.projectMachineName + '.info'),
-          { projectName: this.projectMachineName }
-        );
-        this.fs.copyTpl(
-          this.templatePath('theme_tpl/_template.php'),
-          this.destinationPath('src/themes/' + this.projectMachineName + '/template.php'),
-          { projectName: this.projectMachineName }
-        );
-        this.fs.copyTpl(
-          this.templatePath('theme_tpl/_theme-settings.php'),
-          this.destinationPath('src/themes/' + this.projectMachineName + '/theme-settings.php'),
-          { projectName: this.projectMachineName }
-        );
-        this.fs.copyTpl(
-          this.templatePath('_config.rb'),
-          this.destinationPath('config.rb'),
-          { projectName: this.projectMachineName }
-        );
-        this.fs.copy(
-          this.templatePath('_Gemfile'),
-          this.destinationPath('Gemfile')
-        );
-      }
-    }
-
-  },
+  //writing: {
+  //
+  //},
 
   install: function () {
     this.installDependencies({

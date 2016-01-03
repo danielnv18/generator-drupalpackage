@@ -16,8 +16,9 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "yeoman-generator": "^0.21.1",
     "chalk": "^1.0.0",
+    "wiredep": "^3.0.0",
+    "yeoman-generator": "^0.21.1",
     "yosay": "^1.0.2"
   },
   "devDependencies": {
@@ -29,7 +30,8 @@
     "gulp-mocha": "^2.0.0",
     "gulp-plumber": "^1.0.0",
     "gulp-nsp": "^2.1.0",
-    "gulp-coveralls": "^0.1.0"
+    "gulp-coveralls": "^0.1.0",
+    "underscore.string": "^3.2.2"
   },
   "repository": "danielnv18/generator-drupalpackage",
   "scripts": {

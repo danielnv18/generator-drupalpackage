@@ -1,7 +1,0 @@
-# Ignore build-related stuff
-build/*
-node_modules/*
-
-# Ignore paths that contain user-generated content.
-/src/sites/*/files
-/src/sites/*/private
